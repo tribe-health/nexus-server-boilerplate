@@ -1,0 +1,67 @@
+{
+  "name": "nexus-server-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/src/server.ts",
+  "scripts": {
+    "dev": "ts-node-dev --no-notify --respawn --transpile-only src/server",
+    "start": "node dist/src/server",
+    "clean": "rm -rf dist",
+    "build": "npm -s run clean && npm -s run generate && tsc",
+    "generate": "npm -s run generate:prisma && npm -s run generate:nexus",
+    "generate:prisma": "prisma generate",
+    "generate:nexus": "ts-node --transpile-only src/schema",
+    "migrate:create": "prisma migrate dev --create-only",
+    "migrate:dev": "prisma migrate dev",
+    "prepare": "husky install",
+    "db:studio": "prisma studio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knit-dev/nexus-server-boilerplate"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/knit-dev/nexus-server-boilerplate/issues"
+  },
+  "homepage": "https://github.com/knit-dev/nexus-server-boilerplate#readme",
+  "dependencies": {
+    "@prisma/client": "^3.5.0",
+    "apollo-server-express": "^3.5.0",
+    "aws-sdk": "^2.1034.0",
+    "dotenv": "^10.0.0",
+    "expo-server-sdk": "^3.6.0",
+    "express": "^4.17.1",
+    "express-jwt": "^6.1.0",
+    "graphql": "^15.7.2",
+    "graphql-middleware": "^6.1.12",
+    "graphql-scalars": "^1.13.6",
+    "graphql-shield": "^7.5.0",
+    "graphql-upload": "^12.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwks-rsa": "^2.0.5",
+    "nexus": "^1.1.0",
+    "uuid": "^8.3.2"
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --cache --fix"
+  },
+  "devDependencies": {
+    "@types/graphql-upload": "^8.0.7",
+    "@types/jsonwebtoken": "^8.5.6",
+    "@types/node": "^16.11.9",
+    "@types/uuid": "^8.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.4.1",
+    "prisma": "^3.5.0",
+    "ts-node": "^10.4.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.2"
+  }
+}

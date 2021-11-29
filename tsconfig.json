@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "lib": ["esnext"],
+    "strict": true
+    // TODO: get rid of skipLibCheck once nexus-prisma fixes 1-n relations
+    // "skipLibCheck": true
+  },
+  "include": ["src/**/*", "prisma/**/*"]
+}
